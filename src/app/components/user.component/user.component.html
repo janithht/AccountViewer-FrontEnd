@@ -1,0 +1,27 @@
+<div class="user-balances-container">
+  <h2>Latest Balances</h2>
+  <div *ngIf="loading" class="loading">Loading balances...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="balances && !loading">
+    <div class="meta">
+      <span>Year: <strong>{{ balances.year }}</strong></span>
+      <span>Month: <strong>{{ balances.month }}</strong></span>
+    </div>
+    <table class="balances-table">
+      <thead>
+        <tr>
+          <th>Account Name</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of balances.items">
+          <td>{{ item.accountName }}</td>
+          <td [ngClass]="{'negative': item.balance < 0}">
+            {{ item.balance | number:'1.2-2' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

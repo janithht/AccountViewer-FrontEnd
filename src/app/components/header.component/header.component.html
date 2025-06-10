@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <span class="navbar-brand">AccountsViewer</span>
+  <div class="ml-auto header-actions">
+    <!-- Show sign-in form if not authenticated -->
+    <form *ngIf="!auth.getToken()" [formGroup]="form" (ngSubmit)="onSignIn()" class="header-login-form">
+      <input formControlName="username" placeholder="Username" autocomplete="username" />
+      <input type="password" formControlName="password" placeholder="Password" autocomplete="current-password" />
+      <button type="submit">Sign In</button>
+      <span class="error" *ngIf="error">{{ error }}</span>
+    </form>
+    <!-- Show sign-out button if authenticated -->
+    <div *ngIf="auth.getToken()" class="header-logout">
+      <button (click)="onSignOut()">Sign Out</button>
+    </div>
+  </div>
+</nav>

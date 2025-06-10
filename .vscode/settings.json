@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/c5fa899e-f3ac-4007-9700-bd68b7b1f42d/resourceGroups/rg-accounts-viewer-prod/providers/Microsoft.Web/sites/AccountBalance",
+  "appService.deploySubpath": "dist\\angular-app"
+}

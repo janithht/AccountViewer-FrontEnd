@@ -1,0 +1,16 @@
+<div class="admin-upload-container">
+  <h2>Upload Balance Excel File</h2>
+  <form (ngSubmit)="onUpload()" class="upload-form">
+    <input type="file" accept=".xls,.xlsx" (change)="onFileSelected($event)" [disabled]="uploading" />
+    <button type="submit" [disabled]="!selectedFile || uploading">
+      {{ uploading ? 'Uploading...' : 'Upload' }}
+    </button>
+  </form>
+  <div *ngIf="uploadProgress !== null" class="progress-bar">
+    <div class="progress" [style.width.%]="uploadProgress"></div>
+    <span>{{ uploadProgress }}%</span>
+  </div>
+  <div class="upload-message" *ngIf="uploadMessage">
+    {{ uploadMessage }}
+  </div>
+</div>
