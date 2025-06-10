@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # AngularApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
@@ -105,3 +106,6 @@ Use these steps to clone from SourceTree, our client for using the repository co
 
 Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
 >>>>>>> 40a36bb87c6cbc8886893357cb6d93ba320c891d
+=======
+# AccountViewer-FrontEnd
+>>>>>>> 96f9422c856f1e19c10a9de91ca5d66cf457c116
