@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
-
+import { environment } from '../../environments/environment.prod';
 
 interface LoginResponse { token: string; expires: string; }
 interface DecodedToken { sub: string; role: string | string[]; }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:5000/api/auth';
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(username: string, password: string) {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, { username, password });
+    return this.http.post<LoginResponse>(`${this.baseUrl}/auth/login`, { username, password });
   }
 
   logout() {

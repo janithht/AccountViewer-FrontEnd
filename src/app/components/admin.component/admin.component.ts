@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-admin',
@@ -15,6 +16,7 @@ export class AdminComponent {
   uploadProgress: number | null = null;
   uploadMessage: string = '';
   uploading = false;
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -38,7 +40,7 @@ export class AdminComponent {
     this.uploadProgress = 0;
     this.uploadMessage = '';
 
-    this.http.post<any>('http://localhost:5000/api/upload', formData, {
+    this.http.post<any>(`${this.baseUrl}/upload`, formData, {
       reportProgress: true,
       observe: 'events'
     }).subscribe({

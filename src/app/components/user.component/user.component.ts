@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.prod';
 
 interface BalanceItem {
   accountName: string;
@@ -24,11 +25,12 @@ export class UserComponent implements OnInit {
   balances: LatestBalancesDto | null = null;
   loading = true;
   error = '';
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<LatestBalancesDto>('http://localhost:5000/api/balance/latest').subscribe({
+    this.http.get<LatestBalancesDto>(`${this.baseUrl}/balance/latest`).subscribe({
       next: data => {
         this.balances = data;
         this.loading = false;
